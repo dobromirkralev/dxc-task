@@ -1,5 +1,113 @@
-<app-nav-bar></app-nav-bar>
-<app-vending-machine [items]="items()"></app-vending-machine>
+<!-- <app-vending-machine [items]="items()"></app-vending-machine>
 @if(cartOpen){
 <app-cart-view (close)="cartOpen = false"></app-cart-view>
-}
+} -->
+<main class="container" role="main">
+  <section class="hero">
+    <h1 class="eyebrow">Vendi</h1>
+    <h1>Grab a snack or drink — fast, cashless, and fresh.</h1>
+    <p class="lead">
+      Our vending machine offers a curated selection of beverages and snacks.
+      Choose from cold drinks, chocolates, chips — all available 24/7. Prices
+      shown are final and include VAT.
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" routerLink="/inventory" id="openInventory"
+        >See inventory &amp; buy</a
+      >
+    </div>
+
+    <div class="features" id="features">
+      <div class="feat">
+        <strong>Cashless payments</strong>
+        <small>Contactless cards & mobile pay supported</small>
+      </div>
+      <div class="feat">
+        <strong>Fresh stock</strong>
+        <small>Checked & restocked daily</small>
+      </div>
+      <div class="feat">
+        <strong>Allergen info</strong>
+        <small>Full ingredient list available on the inventory page</small>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; color: var(--muted); font-size: 13px">
+      <strong>Note:</strong> If you have dietary restrictions, check product
+      details before purchase. For issues, use the help button on the machine or
+      contact support.
+    </div>
+  </section>
+
+  <!-- <aside class="machine-card" aria-label="vending machine overview">
+    <div
+      class="machine-visual"
+      role="img"
+      aria-label="visual representation of vending machine"
+    >
+      <div
+        style="
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          font-size: 12px;
+          color: var(--muted);
+        "
+      >
+        Machine #A-12
+      </div>
+      <div class="machine-shelf" aria-hidden="true">
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=C" alt="Coke" />
+          <div style="font-size: 12px; color: var(--muted)">Coca-Cola</div>
+        </div>
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=S" alt="Sprite" />
+          <div style="font-size: 12px; color: var(--muted)">Sprite</div>
+        </div>
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=F" alt="Fanta" />
+          <div style="font-size: 12px; color: var(--muted)">Fanta</div>
+        </div>
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=M" alt="Milka" />
+          <div style="font-size: 12px; color: var(--muted)">Milka</div>
+        </div>
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=H" alt="Haribo" />
+          <div style="font-size: 12px; color: var(--muted)">Haribo</div>
+        </div>
+        <div class="shelf-item">
+          <img src="https://via.placeholder.com/64x64?text=R" alt="Ruffles" />
+          <div style="font-size: 12px; color: var(--muted)">Ruffles</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meta">
+      <div>
+        <div style="font-weight: 700">Next restock</div>
+        <div style="color: var(--muted); font-size: 13px">Dec 09, 2025</div>
+      </div>
+      <div style="text-align: right">
+        <div style="font-weight: 700">Status</div>
+        <div style="color: #7af1d2; font-size: 13px">Online</div>
+      </div>
+    </div>
+
+    <a class="inventory-link" href="/inventory.html">
+      <button class="btn" style="width: 100%; margin-top: 6px">
+        Open full inventory
+      </button>
+    </a>
+
+    <footer
+      style="padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.02)"
+    >
+      <div style="font-size: 13px; color: var(--muted)">
+        © Vendi • Support: +359 2 123 4567
+      </div>
+    </footer>
+  </aside> -->
+</main>

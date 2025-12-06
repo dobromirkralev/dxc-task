@@ -3,7 +3,7 @@
     <!-- Logo / brand -->
     <div class="nav-logo">
       <a
-        href="/"
+        routerLink="/home"
         style="
           display: flex;
           align-items: center;
@@ -43,9 +43,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Search (center) -->
-    <app-search-bar></app-search-bar>
 
     <!-- Actions (cart) -->
     <app-cart-chip (toggle)="cartOpen = !cartOpen"></app-cart-chip>

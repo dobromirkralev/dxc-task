@@ -1,17 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { NavBar } from '../../components/nav-bar/nav-bar';
-import { items } from '../../../dummy-data/vending-items';
-import { VendingMachine } from '../../components/vending-machine/vending-machine';
-import { IVendingItem } from '../../../models/vending-item.model';
-import { CartView } from '../../components/cart-view/cart-view';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-home',
-  imports: [NavBar, VendingMachine, CartView],
+  imports: [RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-  items = signal<IVendingItem[]>(items.vending_products);
-  cartOpen = true;
-  constructor() {}
-}
+export class Home {}
