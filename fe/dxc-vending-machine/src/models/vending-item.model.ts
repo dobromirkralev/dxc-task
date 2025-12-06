@@ -9,5 +9,6 @@ export interface IVendingItem {
   ingredients: string;
   allergens: string[];
   calories_kcal: number;
+  id: string;
   item_picture_id: string;
 }

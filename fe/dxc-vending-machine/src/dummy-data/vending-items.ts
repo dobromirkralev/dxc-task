@@ -13,6 +13,7 @@ export const items = {
       allergens: [],
       calories_kcal: 139,
       item_picture_id: '1',
+      id: '1',
     },
     {
       name: 'Coca-Cola 2L',
@@ -27,6 +28,7 @@ export const items = {
       allergens: [],
       calories_kcal: 840,
       item_picture_id: '2',
+      id: '2',
     },
     {
       name: 'Sprite 330ml',
@@ -41,6 +43,7 @@ export const items = {
       allergens: [],
       calories_kcal: 146,
       item_picture_id: '3',
+      id: '3',
     },
     {
       name: 'Sprite 2L',
@@ -55,6 +58,7 @@ export const items = {
       allergens: [],
       calories_kcal: 880,
       item_picture_id: '4',
+      id: '4',
     },
     {
       name: 'Fanta 330ml',
@@ -69,6 +73,7 @@ export const items = {
       allergens: [],
       calories_kcal: 160,
       item_picture_id: '5',
+      id: '5',
     },
     {
       name: 'Fanta 2L',
@@ -83,6 +88,7 @@ export const items = {
       allergens: [],
       calories_kcal: 970,
       item_picture_id: '6',
+      id: '6',
     },
     {
       name: 'Milka Chocolate White',
@@ -97,6 +103,7 @@ export const items = {
       allergens: ['milk', 'soy'],
       calories_kcal: 560,
       item_picture_id: '7',
+      id: '7',
     },
     {
       name: 'Milka Chocolate Dark',
@@ -111,6 +118,7 @@ export const items = {
       allergens: ['soy'],
       calories_kcal: 540,
       item_picture_id: '8',
+      id: '8',
     },
     {
       name: 'Milka Chocolate Caramel',
@@ -125,6 +133,7 @@ export const items = {
       allergens: ['milk', 'soy'],
       calories_kcal: 575,
       item_picture_id: '9',
+      id: '9',
     },
     {
       name: 'Haribo Starmix',
@@ -139,6 +148,7 @@ export const items = {
       allergens: [],
       calories_kcal: 350,
       item_picture_id: '13',
+      id: '13',
     },
     {
       name: 'Haribo Pico Balla',
@@ -153,6 +163,7 @@ export const items = {
       allergens: ['gluten'],
       calories_kcal: 360,
       item_picture_id: '14',
+      id: '14',
     },
     {
       name: 'Ruffles Salt Chips Regular',
@@ -166,6 +177,7 @@ export const items = {
       allergens: [],
       calories_kcal: 520,
       item_picture_id: '10',
+      id: '10',
     },
     {
       name: 'Ruffles Paprika Chips Regular',
@@ -180,6 +192,7 @@ export const items = {
       allergens: [],
       calories_kcal: 525,
       item_picture_id: '12',
+      id: '12',
     },
     {
       name: 'Ruffles Barbeque Chips Regular',
@@ -194,6 +207,7 @@ export const items = {
       allergens: [],
       calories_kcal: 530,
       item_picture_id: '11',
+      id: '11',
     },
   ],
 };

@@ -1,2 +1,6 @@
 <app-search-bar></app-search-bar>
-<app-vending-machine [items]="items()"></app-vending-machine>
+@if(loading$ | async){
+<div class="loading-indicator">Loading products...</div>
+} @if(products$ | async; as products) {
+<app-vending-machine [items]="products"></app-vending-machine>
+}
