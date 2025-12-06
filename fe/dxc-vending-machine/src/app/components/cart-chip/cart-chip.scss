@@ -1,0 +1,31 @@
+.cart-btn {
+  --size: 44px;
+  width: var(--size);
+  height: var(--size);
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  position: relative;
+  padding: 6px;
+}
+.cart-btn:focus {
+  outline: 3px solid rgba(255, 183, 3, 0.18);
+  outline-offset: 2px;
+}
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent);
+  color: #08111a;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  min-width: 22px;
+  text-align: center;
+}

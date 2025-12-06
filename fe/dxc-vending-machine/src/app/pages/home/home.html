@@ -1,0 +1,5 @@
+<app-nav-bar></app-nav-bar>
+<app-vending-machine [items]="items()"></app-vending-machine>
+@if(cartOpen){
+<app-cart-view (close)="cartOpen = false"></app-cart-view>
+}

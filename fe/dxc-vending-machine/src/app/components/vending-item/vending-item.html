@@ -1,0 +1,56 @@
+<div class="vending-item">
+  @if(item) {
+  <div class="item-media">
+    @if(item.item_picture_id) {
+    <img
+      class="item-image"
+      [src]="'/assets/' + item.item_picture_id + '.jpg'"
+      [alt]="item.name"
+      loading="lazy"
+    />
+    }
+  </div>
+
+  <div class="item-body">
+    <div class="item-head">
+      <h3 class="item-name">{{ item.name }}</h3>
+      <p class="item-vendor">{{ item.vendor }}</p>
+    </div>
+
+    <div class="item-meta">
+      <span class="item-price">{{ item.price_lev | number : "1.2-2" }} lv</span>
+      <span class="item-qty" [class.low]="itemQuantityAvailable() <= 5"
+        >{{ itemQuantityAvailable() }} pcs</span
+      >
+    </div>
+
+    <div class="add-cart-actions">
+      <div class="qty-bought-counter">
+        <button
+          (click)="decreaseBoughtQuantity()"
+          class="counter-btn"
+          aria-label="Decrease quantity"
+        >
+          -
+        </button>
+        <span class="counter-value">{{ boughtQuantity() }}</span>
+        <button
+          (click)="increaseBoughtQuantity()"
+          class="counter-btn"
+          aria-label="Increase quantity"
+        >
+          +
+        </button>
+      </div>
+
+      <button
+        (click)="addToCart()"
+        class="item-buy"
+        [disabled]="item.quantity === 0"
+      >
+        {{ item.quantity === 0 ? "Sold out" : "Buy" }}
+      </button>
+    </div>
+  </div>
+  }
+</div>

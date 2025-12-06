@@ -1,0 +1,82 @@
+/* Navbar */
+.navbar {
+  background: var(--bg);
+  color: #fff;
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Left: logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.nav-logo .brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand .title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
+.brand .tag {
+  font-size: 0.75rem;
+  color: var(--pannel);
+  margin-top: 2px;
+}
+
+/* Right: cart */
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Small screens: stack a little and hide tagline */
+@media (max-width: 720px) {
+  .nav-inner {
+    gap: 10px;
+  }
+  .brand .tag {
+    display: none;
+  }
+  .search-form {
+    max-width: 100%;
+  }
+  .nav-search {
+    order: 3;
+    width: 100%;
+  }
+  .nav-logo {
+    order: 1;
+  }
+  .nav-actions {
+    order: 2;
+  }
+}
+
+/* Focus visible for keyboard users */
+.search-input:focus-visible,
+.cart-btn:focus-visible,
+.search-button:focus-visible,
+.nav-logo a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.12);
+  outline-offset: 2px;
+}

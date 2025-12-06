@@ -1,0 +1,57 @@
+<header class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <!-- Logo / brand -->
+    <div class="nav-logo">
+      <a
+        href="/"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          color: inherit;
+        "
+        aria-label="Vendi — Home"
+      >
+        <!-- Compact SVG icon for vending machine -->
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 64 64"
+          fill="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect
+            x="6"
+            y="6"
+            width="52"
+            height="52"
+            rx="8"
+            fill="#9aa4b2"
+            stroke="rgba(255,255,255,0.6)"
+          />
+          <rect x="14" y="14" width="12" height="10" rx="2" fill="#ffb703" />
+          <rect x="30" y="14" width="18" height="36" rx="2" fill="#102030" />
+          <rect x="34" y="18" width="10" height="6" rx="1" fill="#9aa4b2" />
+          <circle cx="46" cy="44" r="3" fill="#ffb703" />
+        </svg>
+
+        <div class="brand">
+          <span class="title">Vendi</span>
+          <span class="tag" aria-hidden="true">vending made easy</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Search (center) -->
+    <app-search-bar></app-search-bar>
+
+    <!-- Actions (cart) -->
+    <app-cart-chip (toggle)="cartOpen = !cartOpen"></app-cart-chip>
+    <!-- @if(cartOpen){
+    <app-cart-view (close)="cartOpen = false"></app-cart-view>
+
+    } -->
+  </div>
+</header>

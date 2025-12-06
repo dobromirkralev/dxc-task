@@ -1,0 +1,17 @@
+<div class="cart-panel" role="dialog" aria-label="Shopping cart">
+  <header class="cart-header">
+    <h3>Shopping cart</h3>
+    <button class="close-btn" aria-label="Close cart" (click)="onClose()">
+      ✕
+    </button>
+  </header>
+
+  <div class="cart-content">
+    <p class="empty">Your cart is empty.</p>
+    <!-- Future: list cart items here -->
+  </div>
+
+  <footer class="cart-footer">
+    <button class="checkout" disabled>Checkout</button>
+  </footer>
+</div>
