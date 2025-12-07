@@ -22,3 +22,7 @@ export const buyProductFailure = createAction(
   '[Products] Buy Product Failure',
   props<{ error: any }>()
 );
+export const restoreProductQuantity = createAction(
+  '[Products] Restore Product Quantity',
+  props<{ productId: string; quantity: number }>()
+);

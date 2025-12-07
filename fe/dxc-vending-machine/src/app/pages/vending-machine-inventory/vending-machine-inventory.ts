@@ -30,5 +30,4 @@ export class VendingMachineInventory implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadProducts());
   }
-  // items = signal<IVendingItem[]>(items.vending_products);
 }

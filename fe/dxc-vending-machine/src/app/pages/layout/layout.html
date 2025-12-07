@@ -1,2 +1,5 @@
 <app-nav-bar></app-nav-bar>
+@if(cartOpen){
+<app-cart-view (close)="closeCart()"></app-cart-view>
+}
 <router-outlet></router-outlet>

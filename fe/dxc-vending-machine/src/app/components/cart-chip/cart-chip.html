@@ -4,6 +4,7 @@
     id="cartBtn"
     aria-label="Open shopping cart"
     title="Cart (0 items)"
+    (click)="onToggleCart()"
   >
     <svg
       width="22"
@@ -28,7 +29,7 @@
       id="cartCount"
       aria-live="polite"
       aria-atomic="true"
-      >0</span
+      >{{ itemCount$ | async }}</span
     >
   </button>
 </div>

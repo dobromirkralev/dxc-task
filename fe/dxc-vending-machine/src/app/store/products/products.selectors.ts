@@ -1,5 +1,6 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { ProductsState } from './products.reducer';
+import { IVendingItem } from '../../../models/vending-item.model';
 
 export const selectProductsState =
   createFeatureSelector<ProductsState>('products');
@@ -20,6 +21,6 @@ export const selectProductsError = createSelector(
 );
 
 export const selectProductById = (productId: string) =>
-  createSelector(selectAllProducts, (products) =>
-    products.find((product) => product.id === productId)
-  );
+  createSelector(selectAllProducts, (products: IVendingItem[]) => {
+    return products.find((product) => product.id === productId);
+  });

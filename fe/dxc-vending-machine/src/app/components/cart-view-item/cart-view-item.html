@@ -1,1 +1,21 @@
-<p>cart-view-item works!</p>
+<li class="cart-item">
+  <div class="item-info">
+    <span class="item-media">
+      @if(item.product.item_picture_id) {
+      <img
+        class="item-image"
+        [src]="'/assets/' + item.product.item_picture_id + '.jpg'"
+        [alt]="item.product.name"
+        loading="lazy"
+      />
+      }
+    </span>
+    <!-- <span class="item-name">{{ item!.product.name }}</span> -->
+  </div>
+  <div class="item-quantity">X {{ item!.quantity }}</div>
+
+  <div class="item-price">{{ item!.subtotal.toFixed(2) }} lev</div>
+  <button class="close-btn" aria-label="Close cart" (click)="removeItem()">
+    ✕
+  </button>
+</li>

@@ -1,0 +1,20 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .item-media,
+  .item-media img {
+    display: block;
+    height: 50px;
+    width: 50px;
+  }
+
+  .close-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+}

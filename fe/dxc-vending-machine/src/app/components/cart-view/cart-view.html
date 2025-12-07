@@ -7,8 +7,14 @@
   </header>
 
   <div class="cart-content">
+    <ul class="cart-items">
+      @for (item of cartItems; track item.productId) {
+      <app-cart-view-item [item]="item"></app-cart-view-item>
+      }
+    </ul>
+    @if(cartItems.length === 0) {
     <p class="empty">Your cart is empty.</p>
-    <!-- Future: list cart items here -->
+    }
   </div>
 
   <footer class="cart-footer">

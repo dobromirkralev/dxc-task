@@ -30,11 +30,11 @@ export const productsReducer = createReducer(
   on(ProductsActions.buyProduct, (state, { productId, quantity = 1 }) => {
     const items = state.products.map((item) => {
       if (item.id === productId) {
-        return { ...item, stock: item.quantity - quantity };
+        return { ...item, quantity: item.quantity - quantity };
       }
       return item;
     });
-    return { ...state, products: items, loading: true };
+    return { ...state, products: items, loading: false };
   }),
   on(ProductsActions.buyProductSuccess, (state, { productId, quantity }) => ({
     ...state,
@@ -43,5 +43,17 @@ export const productsReducer = createReducer(
   on(ProductsActions.buyProductFailure, (state, { error }) => ({
     ...state,
     error,
-  }))
+  })),
+  on(
+    ProductsActions.restoreProductQuantity,
+    (state, { productId, quantity = 1 }) => {
+      const items = state.products.map((item) => {
+        if (item.id === productId) {
+          return { ...item, quantity: item.quantity + quantity };
+        }
+        return item;
+      });
+      return { ...state, products: items, loading: false };
+    }
+  )
 );
