@@ -7,6 +7,9 @@ import {
 } from '../../store/cart/cart.selectors';
 import { IVendingItem } from '../../../models/vending-item.model';
 import { CartViewItem } from '../cart-view-item/cart-view-item';
+import { clearCart } from '../../store/cart/cart.actions';
+import { restoreProductQuantity } from '../../store/products/products.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-view',
@@ -18,7 +21,7 @@ import { CartViewItem } from '../cart-view-item/cart-view-item';
 export class CartView {
   @Output() close = new EventEmitter<void>();
   cartItems: any[] = [];
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.store.select(selectCartIemsDetailed).subscribe((items) => {
       this.cartItems = items;
     });
@@ -26,5 +29,22 @@ export class CartView {
 
   onClose() {
     this.close.emit();
+  }
+
+  clearCart() {
+    this.cartItems.forEach((i) => {
+      this.store.dispatch(
+        restoreProductQuantity({
+          productId: i.product.id,
+          quantity: i.quantity,
+        })
+      );
+    });
+    this.store.dispatch(clearCart());
+  }
+
+  checkOut() {
+    this.close.emit();
+    this.router.navigate(['/checkout']);
   }
 }

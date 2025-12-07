@@ -1,1 +1,46 @@
+<section class="checkout">
+  <header class="checkout__header">
+    <h1>Checkout</h1>
+    <span class="summary-mini">{{ cartItems.length }} Items</span>
+  </header>
 
+  <div class="checkout__container">
+    <!-- Left: Items list -->
+    <div class="checkout__left">
+      <div class="card">
+        <div class="items">
+          @for (item of cartItems; track item.product.id) {
+          <div class="item">
+            <span class="thumb"
+              ><img [src]="'/assets/' + item.product.item_picture_id + '.jpg'"
+            /></span>
+            <div class="meta">
+              <span class="title">{{ item.product.name }}</span>
+              <span class="desc">{{ item.product.price_lev }} lev</span>
+              <span class="desc">{{ item.product.category }}</span>
+              <span class="desc">{{ item.quantity }}</span>
+            </div>
+          </div>
+          }
+          <!-- If empty: <div class="empty">Your cart is empty.</div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Summary and payment -->
+    <div class="checkout__right">
+      <div class="summary-card">
+        <div class="totals">
+          <span class="label">Total</span>
+          <span class="amount">{{ total }} lev</span>
+        </div>
+        <div class="actions">
+          <button class="checkout-btn" (click)="navigateToPayment()">
+            Checkout
+          </button>
+          <button class="secondary" (click)="backToShop()">Back to shop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

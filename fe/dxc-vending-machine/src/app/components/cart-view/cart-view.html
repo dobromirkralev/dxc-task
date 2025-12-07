@@ -18,6 +18,19 @@
   </div>
 
   <footer class="cart-footer">
-    <button class="checkout" disabled>Checkout</button>
+    <button
+      class="clearcart"
+      [disabled]="cartItems.length === 0"
+      (click)="clearCart()"
+    >
+      Clear Cart
+    </button>
+    <button
+      class="checkout"
+      [disabled]="cartItems.length === 0"
+      (click)="checkOut()"
+    >
+      Checkout
+    </button>
   </footer>
 </div>

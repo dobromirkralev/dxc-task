@@ -1,0 +1,104 @@
+/* Vending machine keypad style for payment page */
+.payment {
+  max-width: 340px;
+  margin: 2.5rem auto;
+  background: #f7fafc;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(16, 24, 40, 0.1);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.payment__display {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.payment__input {
+  width: 100%;
+  font-size: 2rem;
+  text-align: right;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+  color: #0a7a44;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.payment__keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-gap: 14px;
+  justify-content: center;
+}
+
+.keypad__btn {
+  width: 64px;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: #e6e8ee;
+  border: none;
+  border-radius: 12px;
+  color: #222;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.keypad__btn:active {
+  background: #c7f9cc;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.1);
+}
+
+.payment__actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.payment__action {
+  flex: 1 1 0;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.payment__action--cancel {
+  background: #e6e8ee;
+  color: #222;
+  margin-right: 0.5rem;
+}
+
+.payment__action--pay {
+  background: #0a7a44;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .payment {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .payment__keypad {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  .keypad__btn {
+    width: 50px;
+    height: 48px;
+    font-size: 1.15rem;
+  }
+}

@@ -54,7 +54,8 @@
   justify-content: flex-end;
 }
 
-.checkout {
+.checkout,
+.clearcart {
   background: #0a7a44;
   color: #fff;
   border: none;
@@ -63,7 +64,16 @@
   cursor: pointer;
 }
 
-.checkout[disabled] {
+.clearcart {
+  background: red;
+}
+
+.checkout {
+  margin-left: 20px;
+}
+
+.checkout[disabled],
+.clearcart[disabled] {
   background: #d1d1d1;
   cursor: not-allowed;
 }
