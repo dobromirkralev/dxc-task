@@ -8,9 +8,9 @@ import { IVendingItem } from '../../../models/vending-item.model';
 export class VendingItemsService {
   constructor(private http: HttpClient) {}
 
-  private url = './assets/data/vending-items.json';
+  private readonly API_URL = 'http://localhost:3000/products';
 
   getItems() {
-    return this.http.get<IVendingItem[]>(this.url);
+    return this.http.get<IVendingItem[]>(this.API_URL);
   }
 }
