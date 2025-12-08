@@ -4,7 +4,7 @@
     "vendor": "Coca-Cola Company",
     "price_lev": 2.2,
     "price_eur": 1.12,
-    "quantity": 8,
+    "quantity": 15,
     "good_until": "2025-10-12",
     "category": "Beverage",
     "ingredients": "Carbonated water, sugar, caramel color, phosphoric acid, natural flavors, caffeine",
@@ -18,7 +18,7 @@
     "vendor": "Coca-Cola Company",
     "price_lev": 4.8,
     "price_eur": 2.45,
-    "quantity": 4,
+    "quantity": 15,
     "good_until": "2025-08-02",
     "category": "Beverage",
     "ingredients": "Carbonated water, sugar, caramel color, phosphoric acid, natural flavors, caffeine",
@@ -92,10 +92,7 @@
     "good_until": "2026-03-14",
     "category": "Snack",
     "ingredients": "Sugar, cocoa butter, skimmed milk powder, whey powder, butterfat, emulsifier (soy lecithin), flavorings",
-    "allergens": [
-      "milk",
-      "soy"
-    ],
+    "allergens": ["milk", "soy"],
     "calories_kcal": 560,
     "item_picture_id": "7",
     "id": "7"
@@ -109,9 +106,7 @@
     "good_until": "2026-01-19",
     "category": "Snack",
     "ingredients": "Cocoa mass, sugar, cocoa butter, emulsifier (soy lecithin), flavorings",
-    "allergens": [
-      "soy"
-    ],
+    "allergens": ["soy"],
     "calories_kcal": 540,
     "item_picture_id": "8",
     "id": "8"
@@ -125,10 +120,7 @@
     "good_until": "2026-05-02",
     "category": "Snack",
     "ingredients": "Milk chocolate (sugar, cocoa butter, milk powder, cocoa mass), caramel (sugar, glucose syrup, milk, butterfat), emulsifier (soy lecithin)",
-    "allergens": [
-      "milk",
-      "soy"
-    ],
+    "allergens": ["milk", "soy"],
     "calories_kcal": 575,
     "item_picture_id": "9",
     "id": "9"
@@ -156,9 +148,7 @@
     "good_until": "2026-01-27",
     "category": "Snack",
     "ingredients": "Glucose syrup, sugar, starch, wheat flour, citric acid, flavorings, fruit and plant concentrates",
-    "allergens": [
-      "gluten"
-    ],
+    "allergens": ["gluten"],
     "calories_kcal": 360,
     "item_picture_id": "14",
     "id": "14"
