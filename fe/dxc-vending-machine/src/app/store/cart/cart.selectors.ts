@@ -37,3 +37,24 @@ export const selectCartTotalPrice = createSelector(
   selectCartIemsDetailed,
   (items) => items.reduce((sum, item) => sum + item.subtotal, 0)
 );
+
+export const selectCartPaymentSuccess = createSelector(
+  selectCartState,
+  (cartState) => {
+    return cartState.paymentSuccess;
+  }
+);
+
+export const selectCartPaymentError = createSelector(
+  selectCartState,
+  (cartState) => {
+    return cartState.paymentError;
+  }
+);
+
+export const selectCartPaymentChange = createSelector(
+  selectCartState,
+  (cartState) => {
+    return cartState.paymentChange;
+  }
+);

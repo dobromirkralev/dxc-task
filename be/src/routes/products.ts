@@ -13,9 +13,5 @@ router.get("/:id", (req, res, next) =>
   controller().getProductById(req, res, next)
 );
 
-router.post("/:id", (req, res, next) =>
-  controller().updateQuantity(req, res, next)
-);
-
 router.patch("/:id", (req, res, next) => controller().update(req, res, next));
 export default router;

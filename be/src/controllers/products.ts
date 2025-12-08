@@ -27,20 +27,6 @@ export default class ProductsController {
     }
   };
 
-  updateQuantity = async (req: Request, res: Response, next: NextFunction) => {
-    const { quantityInfo, restoreQuantity } = req.body;
-    try {
-      const productUpdated = await this.productsService.updateQuantity(
-        req.params.id!,
-        quantityInfo,
-        restoreQuantity
-      );
-      res.json(productUpdated);
-    } catch (err) {
-      res.status(500).json({ error: "Failed to update product by id" });
-    }
-  };
-
   update = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const productUpdated = await this.productsService.update(

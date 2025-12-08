@@ -3,29 +3,90 @@
     <input
       type="text"
       class="payment__input"
-      value="0.00 лв"
+      [value]="`${paymentAmount.toFixed(2)} lv`"
       readonly
       aria-label="Inserted amount"
     />
   </div>
   <div class="payment__keypad">
-    <button class="keypad__btn" data-key="1">1</button>
-    <button class="keypad__btn" data-key="2">2</button>
-    <button class="keypad__btn" data-key="3">3</button>
-    <button class="keypad__btn" data-key="4">4</button>
-    <button class="keypad__btn" data-key="5">5</button>
-    <button class="keypad__btn" data-key="6">6</button>
-    <button class="keypad__btn" data-key="7">7</button>
-    <button class="keypad__btn" data-key="8">8</button>
-    <button class="keypad__btn" data-key="9">9</button>
-    <button class="keypad__btn" data-key="clear">C</button>
-    <button class="keypad__btn" data-key="0">0</button>
-    <button class="keypad__btn" data-key="dot">.</button>
+    @for (item of paymentOptions; track $index) {
+    <button
+      class="keypad__btn"
+      (click)="paymentBtnClick(item.quantity, item.currency)"
+    >
+      {{`${item.quantity}${item.currency}`}}
+    </button>
+    }
+    <button class="keypad__btn" (click)="paymentBtnClick(0, 'clear')">C</button>
   </div>
   <div class="payment__actions">
     <button (click)="back()" class="payment__action payment__action--cancel">
       Cancel
     </button>
-    <button class="payment__action payment__action--pay">Pay</button>
+    <button class="payment__action payment__action--pay" (click)="pay()">
+      Pay
+    </button>
+  </div>
+
+  <div class="payment-change">
+    @for(item of paymentChange?.changeBreakdown; track $index) {
+    <p></p>
+    }
   </div>
 </section>
+
+<section class="checkout">
+  <ng-container *ngIf="paymentChange">
+    <div class="checkout__left">
+      <h1>Change</h1>
+      <h3>Total: {{ paymentChange.total }}</h3>
+      <h3>Change: {{ paymentChange.change }}</h3>
+      <div class="card">
+        <div class="items">
+          @for (item of paymentChange.changeBreakdown; track $index) {
+          <div class="item">
+            <div class="meta">
+              <span
+                class="title"
+                >{{ `${item.value > 0.5 ? item.value: item.value * 100}` + `${item.value> 0.5? 'lv': 'st'}`  }}</span
+              >
+              <span class="desc">{{ item.count }}</span>
+            </div>
+          </div>
+          }
+          <!-- If empty: <div class="empty">Your cart is empty.</div> -->
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>
+
+<!-- SUCCESS POPUP -->
+@if(paymentSuccess) {
+<div
+  id="popup-success"
+  class="popup success"
+  [ngClass]="{ show: paymentSuccess }"
+>
+  <div class="popup-content">
+    <span class="popup-icon">✔</span>
+    <p class="popup-message">Payment completed successfully!</p>
+  </div>
+</div>
+} @if(!!paymentError && paymentError !== null) {
+<!-- ERROR POPUP -->
+<div
+  id="popup-error"
+  class="popup error"
+  [ngClass]="{ show: !!paymentError && paymentError !== null }"
+>
+  <div class="popup-content">
+    <span class="popup-icon">⚠</span>
+    <div>
+      <!-- <p class="popup-message">Something went wrong. Please try again.</p> -->
+      <p class="popup-message">{{ paymentError.paymentInfo }}</p>
+    </div>
+  </div>
+</div>
+
+}

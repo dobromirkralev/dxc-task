@@ -15,6 +15,7 @@ import { productsReducer } from './store/products/products.reducer';
 import { ProductsEffects } from './store/products/products.effects';
 import { provideHttpClient } from '@angular/common/http';
 import { cartReducer } from './store/cart/cart.reducer';
+import { CartEffects } from './store/cart/cart.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore({ products: productsReducer, cart: cartReducer }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects([ProductsEffects]),
+    provideEffects([ProductsEffects, CartEffects]),
     provideRouterStore(),
   ],
 };

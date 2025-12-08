@@ -10,11 +10,10 @@ import { loadProducts } from '../../store/products/products.actions';
 
 import { IVendingItem } from '../../../models/vending-item.model';
 import { VendingMachine } from '../../components/vending-machine/vending-machine';
-import { SearchBar } from '../../components/search-bar/search-bar';
 
 @Component({
   selector: 'app-vending-machine-inventory',
-  imports: [VendingMachine, SearchBar, AsyncPipe, CommonModule],
+  imports: [VendingMachine, AsyncPipe, CommonModule],
   templateUrl: './vending-machine-inventory.html',
   styleUrl: './vending-machine-inventory.scss',
 })

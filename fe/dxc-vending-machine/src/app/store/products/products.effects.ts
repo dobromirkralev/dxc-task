@@ -6,7 +6,7 @@ import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { IVendingItem } from '../../../models/vending-item.model';
 import { Store } from '@ngrx/store';
-import { selectAllProducts, selectProductById } from './products.selectors';
+import { selectProductById } from './products.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsEffects {

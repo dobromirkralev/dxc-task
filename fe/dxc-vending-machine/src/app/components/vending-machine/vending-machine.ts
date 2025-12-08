@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { VendingItemsGrid } from '../vending-items-grid/vending-items-grid';
-import { KeyPad } from '../key-pad/key-pad';
 import { IVendingItem } from '../../../models/vending-item.model';
 
 @Component({

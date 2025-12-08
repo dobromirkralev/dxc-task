@@ -1,4 +1,27 @@
-/* Vending machine keypad style for payment page */
+$color-bg: var(--bg);
+$color-surface: var(--panel);
+$color-muted: var(--muted);
+$color-primary: var(--accent);
+$color-danger: #dc2626;
+$color-border: #e6e8ee;
+$radius-sm: 8px;
+$radius-md: 12px;
+$shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.06);
+$shadow-md: 0 6px 18px rgba(16, 24, 40, 0.08);
+
+$gap-xs: 8px;
+$gap-sm: 12px;
+$gap-md: 20px;
+$gap-lg: 32px;
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+:host {
+  position: relative;
+}
+
 .payment {
   max-width: 340px;
   margin: 2.5rem auto;
@@ -100,5 +123,369 @@
     width: 50px;
     height: 48px;
     font-size: 1.15rem;
+  }
+}
+
+/* Base Popup Container */
+.popup {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: row;
+  > div {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* When popup is shown */
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Success + Error Colors */
+.popup.success {
+  background-color: #28a745; /* green */
+}
+
+.popup.error {
+  background-color: #dc3545; /* red */
+}
+
+/* Icon */
+.popup-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Text */
+.popup-message {
+  margin: 0;
+  font-size: 15px;
+}
+
+.checkout {
+  min-height: 100vh;
+  padding: $gap-lg $gap-md;
+  box-sizing: border-box;
+  color: #0b1220;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gap-sm;
+    margin-bottom: $gap-md;
+
+    h1 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .summary-mini {
+      font-size: 0.95rem;
+      color: $color-muted;
+    }
+  }
+
+  /* page container: stacked on mobile, two-column on larger screens */
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $gap-lg;
+    align-items: start;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: 1fr 360px;
+    }
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 420px;
+    }
+  }
+
+  /* left: items list */
+  &__left {
+    background: transparent;
+
+    .card {
+      background: $color-surface;
+      border-radius: $radius-md;
+      box-shadow: $shadow-sm;
+      border: 1px solid $color-border;
+      padding: $gap-md;
+      display: flex;
+      flex-direction: column;
+      gap: $gap-md;
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-sm;
+    }
+
+    .item {
+      display: flex;
+      gap: $gap-md;
+      align-items: center;
+      padding: $gap-sm;
+      border-radius: $radius-sm;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: rgba(15, 98, 254, 0.03);
+      }
+
+      .thumb {
+        flex: 0 0 64px;
+        height: 64px;
+        border-radius: 8px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.03),
+          rgba(0, 0, 0, 0.02)
+        );
+        display: block;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .meta {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        justify-content: space-between;
+
+        .title {
+          font-weight: 600;
+        }
+
+        .desc {
+          color: $color-muted;
+          font-size: 13px;
+        }
+
+        .controls {
+          display: flex;
+          align-items: center;
+          gap: $gap-sm;
+          margin-top: 4px;
+
+          .qty {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 98, 254, 0.05);
+            padding: 6px 8px;
+            border-radius: 8px;
+
+            button {
+              background: transparent;
+              border: none;
+              color: $color-primary;
+              font-weight: 600;
+              width: 28px;
+              height: 28px;
+              display: inline-grid;
+              place-items: center;
+              cursor: pointer;
+              border-radius: 6px;
+
+              &:focus {
+                outline: 2px solid rgba(15, 98, 254, 0.16);
+                outline-offset: 2px;
+              }
+            }
+
+            .value {
+              min-width: 20px;
+              text-align: center;
+            }
+          }
+
+          .price {
+            margin-left: auto;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .empty {
+      text-align: center;
+      padding: $gap-lg;
+      color: $color-muted;
+      border: 1px dashed $color-border;
+      border-radius: $radius-sm;
+    }
+  }
+
+  /* right: summary and checkout actions */
+  &__right {
+    .summary-card {
+      position: sticky;
+      top: 16px;
+      background: $color-surface;
+      border-radius: $radius-md;
+      padding: $gap-md;
+      box-shadow: $shadow-md;
+      border: 1px solid $color-border;
+      display: flex;
+      flex-direction: column;
+      gap: $gap-md;
+
+      .totals {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+
+        .label {
+          color: $color-muted;
+        }
+
+        .amount {
+          font-weight: 700;
+        }
+      }
+
+      .promo {
+        display: flex;
+        gap: $gap-sm;
+        align-items: center;
+
+        input[type="text"] {
+          flex: 1;
+          padding: 10px 12px;
+          border: 1px solid $color-border;
+          border-radius: $radius-sm;
+          background: transparent;
+          font-size: 14px;
+
+          &:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(15, 98, 254, 0.06);
+            border-color: $color-primary;
+          }
+        }
+
+        button {
+          background: $color-primary;
+          color: white;
+          border: none;
+          padding: 10px 14px;
+          border-radius: $radius-sm;
+          cursor: pointer;
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: $gap-sm;
+        flex-direction: column;
+
+        button {
+          border: none;
+          border-radius: 10px;
+          padding: 12px 14px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        .checkout-btn {
+          background: $color-primary;
+          color: white;
+          box-shadow: 0 6px 18px rgba(15, 98, 254, 0.12);
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+
+        .secondary {
+          background: transparent;
+          border: 1px solid $color-border;
+          color: #0b1220;
+        }
+      }
+    }
+
+    /* make summary full width below medium screens */
+    @media (max-width: $bp-md) {
+      .summary-card {
+        position: relative;
+      }
+    }
+  }
+
+  /* small adjustments for very small screens */
+  @media (max-width: $bp-sm) {
+    padding: $gap-md $gap-sm;
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    &__left .item {
+      gap: $gap-sm;
+      .thumb {
+        flex: 0 0 56px;
+        height: 56px;
+      }
+    }
+
+    &__right .summary-card .actions {
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  /* accessibility & helpers */
+  a,
+  button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
   }
 }
