@@ -16,18 +16,10 @@ export class ProductsService {
     return await this.productRepository.getAll();
   }
 
-  async create(consultant: Product): Promise<Product> {
-    return this.productRepository.create(consultant);
-  }
-
   async update(
-    id: string,
-    consultant: Partial<Product>
+    productId: string,
+    updateProduct: Partial<Product>
   ): Promise<Product | null> {
-    return await this.productRepository.update(id, consultant);
-  }
-
-  async delete(id: string): Promise<boolean> {
-    return await this.productRepository.delete(id);
+    return await this.productRepository.update(productId, updateProduct);
   }
 }

@@ -33,6 +33,29 @@ export class ProductFilesystemRepository implements ProductRepository {
     return product;
   }
 
+  async updateQuantity(
+    id: string,
+    productQuantityInfo: { productId: string; quantity: number },
+    restore: boolean
+  ): Promise<boolean> {
+    const products = await this.readFile();
+    const index = products.findIndex((p) => p.id === id);
+    if (index === -1) {
+      return false;
+    } else {
+      if (products[index]) {
+        if (!restore) {
+          products[index].quantity -= productQuantityInfo.quantity;
+        } else {
+          products[index].quantity += productQuantityInfo.quantity;
+        }
+        await this.writeFile(products);
+        return true;
+      }
+      return false;
+    }
+  }
+
   async update(id: string, product: Partial<Product>): Promise<Product | null> {
     const products = await this.readFile();
     const index = products.findIndex((p) => p.id === id);

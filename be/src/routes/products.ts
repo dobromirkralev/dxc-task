@@ -13,15 +13,9 @@ router.get("/:id", (req, res, next) =>
   controller().getProductById(req, res, next)
 );
 
-// router.post("", (req, res, next) =>
-//   controller().craeteConsultant(req, res, next)
-// );
+router.post("/:id", (req, res, next) =>
+  controller().updateQuantity(req, res, next)
+);
 
-// router.put("/:id", (req, res, next) =>
-//   controller().updateConsultant(req, res, next)
-// );
-
-// router.delete("/:id", (req, res, next) =>
-//   controller().deleteConsultant(req, res, next)
-// );
+router.patch("/:id", (req, res, next) => controller().update(req, res, next));
 export default router;

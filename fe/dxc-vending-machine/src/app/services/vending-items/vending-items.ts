@@ -13,4 +13,8 @@ export class VendingItemsService {
   getItems() {
     return this.http.get<IVendingItem[]>(this.API_URL);
   }
+
+  update(id: string, updatedProduct: Partial<IVendingItem>) {
+    return this.http.patch(`${this.API_URL}/${id}`, updatedProduct);
+  }
 }

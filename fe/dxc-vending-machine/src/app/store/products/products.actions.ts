@@ -12,7 +12,7 @@ export const loadProductsFailure = createAction(
 );
 export const buyProduct = createAction(
   '[Products] Buy Product',
-  props<{ productId: string; quantity?: number }>()
+  props<{ productId: string; quantity: number }>()
 );
 export const buyProductSuccess = createAction(
   '[Products] Buy Product Success',
